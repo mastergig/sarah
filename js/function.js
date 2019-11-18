@@ -71,6 +71,7 @@ function randomNoRepeat(num, qtd)
 $( document ).ready(function() {
     //inicia tela
     try {
+        $("#load")[0].style.transition = 'all 2s';
         var htmlTxt = readTextFile('pages/_html.html');
     }
     finally{
