@@ -71,7 +71,7 @@ function randomNoRepeat(num, qtd)
 $( document ).ready(function() {
     //inicia tela
     try {
-        var htmlTxt = readTextFile('pages/_html.gig');
+        var htmlTxt = readTextFile('pages/_html.html');
     }
     finally{
         carrega(false);
