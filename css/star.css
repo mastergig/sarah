@@ -1,0 +1,31 @@
+.star{
+    display: inline-block;
+    position: absolute;
+    background: url('../img/star.png') no-repeat;
+    background-size: contain;
+    z-index: 2;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.big {
+    top: 0px;
+    width:  120px;
+    height: 120px;
+    animation-duration: 45s;
+}
+
+.mid {
+    bottom: 0px;
+    width:  100px;
+    height: 100px;
+    animation-duration: 50s;
+}
+
+.sml {
+    top: -7px;
+    width:  70px;
+    height: 70px;
+    animation-duration: 55s;
+}

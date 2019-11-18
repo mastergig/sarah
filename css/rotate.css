@@ -1,0 +1,21 @@
+@keyframes spinAH{
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(3000deg); }
+    75%  { transform: rotate(-3000deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes spinHH{
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(-3000deg); }
+    75%  { transform: rotate(3000deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.rotateHH{
+    animation-name: spinHH;
+}
+
+.rotateAH{
+    animation-name: spinAH;
+}

@@ -1,0 +1,82 @@
+@import "font.css"; /* Fonte de Texto para dislexia */
+@import "load.css"; /* Detalhes de loading */
+@import "star.css"; /* CSS das estrelas */
+@import "rotate.css"; /* Animação de rotação das estrelas */
+
+/* Parametros gerais */
+*{
+    font-family: 'OpenDyslexic', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body, html, #main{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    background: linear-gradient(#ffffe5, #fee8b9, #ffdfb9, #fee8b9, #ffffe5);
+}
+
+#main{
+    z-index: 10;
+    display:flex;
+    flex-direction: column;
+}
+
+.f1{
+    flex: 1;
+}
+
+/* Cabeçalho */
+#head{
+    width: 100%;
+    height: 150px;
+    z-index: 10;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+#logo{
+    background: url('../img/logo.png') center center no-repeat;
+    position: relative;
+    background-size: contain;
+    width: 275px;
+    height: 100%;
+    z-index: 3;
+    display: inline-block;
+}
+#left, #right{
+    width: 150px;
+    height: 100%;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+
+
+/* Posições das estrelas */
+#left .big{
+    left: 10;
+}
+#left .mid{
+    right:-20;
+}
+#left .sml{
+    right:-10;
+}
+#right .big{
+    right: 10;
+}
+#right .mid{
+    left:-20;
+}
+#right .sml{
+    left:-10;
+}
+
+/* Rodapé */
+#foot{
+    font-size: x-small;
+    text-align: center;
+}
