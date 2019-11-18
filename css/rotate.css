@@ -1,15 +1,13 @@
 @keyframes spinAH{
-    0%   { transform: rotate(0deg); }
-    25%  { transform: rotate(3000deg); }
-    75%  { transform: rotate(-3000deg); }
-    100% { transform: rotate(0deg); }
+    0%   { transform: rotate(3000deg); }
+    50%  { transform: rotate(-3000deg); }
+    100% { transform: rotate(3000deg); }
 }
 
 @keyframes spinHH{
-    0%   { transform: rotate(0deg); }
-    25%  { transform: rotate(-3000deg); }
-    75%  { transform: rotate(3000deg); }
-    100% { transform: rotate(0deg); }
+    0%   { transform: rotate(-3000deg); }
+    50%  { transform: rotate(3000deg); }
+    100% { transform: rotate(-3000deg); }
 }
 
 .rotateHH{
