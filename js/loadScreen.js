@@ -9,7 +9,7 @@ function start()
             load.style.transition = 'all 2s';
 
             //carrega javaScript com dados padrão e carrega eles na tela
-            addJs('./pg/_html.js', function ()
+            addJs('./pg/html.js', function ()
             {
                 $('#main')[0].innerHTML = strHTML;
                 carrega(false);
