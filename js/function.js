@@ -11,6 +11,15 @@ Created by: Giovanni Perillo
 var APositions = ['left top','left center','left bottom','right top','right center','right bottom','center top','center center','center bottom'];
 var Aid = 0; //valor da posição dos AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
+function AAA()
+{
+    var loadDiv = document.getElementById("load");
+
+    Aid = randomNoRepeat(Aid, APositions.length);
+    loadDiv.style.backgroundPosition = APositions[Aid];
+}
+
+
 function carrega(verdade)
 {
     var loadDiv = document.getElementById("load");
@@ -22,8 +31,7 @@ function carrega(verdade)
     {
         loadDiv.className = "unload";
     }
-    Aid = randomNoRepeat(Aid, APositions.length);
-    loadDiv.style.backgroundPosition = APositions[Aid];
+    AAA();
 }
 
 /*=========================================================
@@ -65,16 +73,38 @@ function randomNoRepeat(num, qtd)
     return i;
 }
 
+function addJs(file, onEnd)
+{
+    var imported = document.createElement('script');
+    imported.src = file;
+    if(onEnd != null) imported.onload = onEnd;
+    document.head.appendChild(imported);
+}
+
+function waitLoadFile(file, onEnd)
+{
+    var imported = document.createElement('img');
+    imported.src = file;
+    if(onEnd != null) imported.onload = onEnd;
+}
+
 /*=========================================================
 ==================  Inicio de Execução  ==================
 =========================================================*/
 $( document ).ready(function() {
+    var carregado = false;
     //inicia tela
     try {
-        $("#load")[0].style.transition = 'all 2s';
-        var htmlTxt = readTextFile('pages/_html.html');
+        
+        addJs('./js/loadScreen.js', function ()
+        {
+            start();
+        });
+
+        //se tudo deu ok, espera carregar arquivos
+        carregado = true;
     }
     finally{
-        carrega(false);
+        carrega(carregado);
     }
 });

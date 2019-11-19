@@ -2,6 +2,7 @@
 @import "load.css"; /* Detalhes de loading */
 @import "star.css"; /* CSS das estrelas */
 @import "rotate.css"; /* Animação de rotação das estrelas */
+@import "menu.css"; /* CSS do menu */
 
 /* Parametros gerais */
 *{
