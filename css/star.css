@@ -10,21 +10,21 @@
 }
 
 .big {
-    top: 0px;
+    top: 3px;
     width:  120px;
     height: 120px;
     animation-duration: 45s;
 }
 
 .mid {
-    bottom: 0px;
+    bottom: 3px;
     width:  100px;
     height: 100px;
     animation-duration: 50s;
 }
 
 .sml {
-    top: -7px;
+    top: -3px;
     width:  70px;
     height: 70px;
     animation-duration: 55s;
