@@ -19,11 +19,14 @@ function carregaTela(pagina, call)
 
     if(pagina == "index")
     {
-        var strHTML = readTextFile('./pages/index.html', function (strHTML)
+        waitLoadFile('./img/SarahIndex.png', function()
         {
-            $('#main')[0].innerHTML = strHTML;
-            $("#menu a").attr("onclick","clicaLink(this.event)");
-            carrega(false);
+            readTextFile('./pages/index.html', function (strHTML)
+            {
+                $('#main')[0].innerHTML = strHTML;
+                $("#menu a").attr("onclick","clicaLink(this.event)");
+                carrega(false);
+            });
         });
     }
     else
@@ -54,7 +57,7 @@ function carregaTela(pagina, call)
             break;
         }
         //carrega javaScript com dados padrão e carrega eles na tela
-        var strHTML = readTextFile('./pages/html.html', function (strHTML)
+        readTextFile('./pages/html.html', function (strHTML)
         {
             $('#main')[0].innerHTML = strHTML;
             $(divAct).addClass("active");
