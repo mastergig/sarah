@@ -78,6 +78,6 @@ function clicaLink()
 {
     var pagina = this.event.currentTarget.href;
     mudaTela(pagina.substring(pagina.lastIndexOf('/') + 1));
-    //this.event.preventDefault();
+    this.event.preventDefault();
     return false;
 }
