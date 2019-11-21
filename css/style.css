@@ -3,6 +3,7 @@
 @import "star.css"; /* CSS das estrelas */
 @import "rotate.css"; /* Animação de rotação das estrelas */
 @import "menu.css"; /* CSS do menu */
+@import "index.css"; /* CSS do index */
 
 /* Parametros gerais */
 *{

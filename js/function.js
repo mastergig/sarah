@@ -26,12 +26,15 @@ function carrega(verdade)
     if(verdade)
     {
         loadDiv.className = "load";
+        AAA();
     }
     else
     {
-        loadDiv.className = "unload";
+        setTimeout(function(){
+            loadDiv.className = "unload";
+            AAA();
+        }, 1300);
     }
-    AAA();
 }
 
 /*=========================================================
@@ -39,7 +42,7 @@ function carrega(verdade)
 =========================================================*/
 
 //carrega arquivo como texto
-function readTextFile(file)
+function readTextFile(file, callback)
 {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
@@ -50,7 +53,7 @@ function readTextFile(file)
             if(rawFile.status === 200 || rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
-                alert(allText);
+                callback(allText);
             }
         }
     }
