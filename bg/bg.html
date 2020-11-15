@@ -9,7 +9,7 @@
 				height: 100%;
 			}
 			#stars-bg{
-				background: linear-gradient(#F3CB9A,#FFF59E,#FEF7DB,#FFF59E,#F3CB9A);
+				background: linear-gradient(#FC9,#FFEC9D,#FFF6A1,#FFF7DD,#FFF6A1,#FFEC9D,#FC9);
 				position: fixed;
 				z-index: -5;
 			}
@@ -25,33 +25,34 @@
 			var stars;
 			var starId = "randomStar";
 			var defaultStarsColors = [
-				"star.gif",
 				"star1.gif",
 				"star2.gif",
-				"star3.gif"
+				"star3.gif",
+				"star4.gif",
+				"star5.gif"
 			];
 			var rotation = {
-				min : 0.1,
-				max : 50
+				min : 1,
+				max : 20
 			}
 			var speed = {
-				min : 0.1,
-				max : 5
+				min : 0.25,
+				max : 3
 			}
 			var size = {
-				min : 15,
-				max : 75
+				min : 25,
+				max : 90
 			}
 			var startPosX = {
 				min : -15,
 				max : 99
 			}
 			var startPosY = {
-				min : -1,
-				max : 99
+				min : -2,
+				max : 102
 			}
-			var maxStars = 150;
-			var updateT = 100;
+			var maxStars = 120;
+			var updateT = 99;
 
 			function startStars()
 			{
