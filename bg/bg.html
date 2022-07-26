@@ -18,7 +18,7 @@
 			}
 			.star-fill{
 				position: absolute;
-				transition: all 1s;
+				transition: all 3.01s linear, opacity 2.5s ease-in;
 			}
 		</style>
 		<script type='text/javascript'>
@@ -32,28 +32,29 @@
 				"star5.gif"
 			];
 			var rotation = {
-				min : 1,
-				max : 20
+				min : 100,
+				max : 500
 			}
 			var speed = {
-				min : 0.25,
-				max : 3
+				min : 15,
+				max : 39
 			}
 			var size = {
-				min : 25,
+				min : 35,
 				max : 90
 			}
 			var startPosX = {
-				min : -15,
+				min : -99,
+				max : 99
+			}	
+			var startPosY = {
+				min : -1,
 				max : 99
 			}
-			var startPosY = {
-				min : -2,
-				max : 102
-			}
-			var maxStars = 120;
-			var updateT = 99;
-
+			var maxStars = 150;
+			var updateT = 3000;
+			var inicio = 2;
+			
 			function startStars()
 			{
 				stars = [];
@@ -69,19 +70,37 @@
 				
 				for(var i = 0; i < maxStars; i++)
 				{
-					var newStar = "<img id='" + stars[i].id + "' src='" + stars[i].backImage + "' class='star-fill' style='";
-
-					newStar += " width: " + stars[i].size + "px;";
-					newStar += " height: " + stars[i].size + "px;";
-					newStar += " transform: rotate(" + stars[i].rotation + "deg);";
-					newStar += " top: " + stars[i].posY + "%;";
-					newStar += " left: " + stars[i].posX + "%;";
-
-					newStar += "' />";
-					starsHtml += newStar;
+					starsHtml += createStar(stars[i]);
 				}
 				document.getElementById("stars-bg").innerHTML = starsHtml;
-				setTimeout(function(){updateStars()}, updateT);
+				
+				updateStars();
+			}
+			function createStar(star)
+			{
+				var newStar = "<img id='" + star.id + "' src='" + star.backImage + "' class='star-fill' style='";
+
+				newStar += " width: " + star.size + "px;";
+				newStar += " height: " + star.size + "px;";
+				newStar += " transform: rotate(" + star.rotation + "deg);";
+				newStar += " top: " + star.posY + "%;";
+				newStar += " left: " + star.posX + "%;";
+				newStar += " opacity: 1;";
+
+				newStar += "' />";
+
+				return newStar;
+			}
+			function starReborn(i)
+			{
+				//console.log(i);
+				var estrela = document.getElementById(stars[i].id);
+				var estrelado = document.getElementById("stars-bg");
+				
+				estrela.remove();
+				stars[i] = randomStar(stars[i].id,0);
+
+				estrelado.insertAdjacentHTML('beforeend', createStar(stars[i]));
 			}
 			function updateStars()
 			{
@@ -89,26 +108,24 @@
 				{
 					var estrela = document.getElementById(stars[i].id);
 
-					if(stars[i].posX > (200 + (2*stars[i].speed))) estrela.style.display = "none";
+					if(stars[i].posX > (200 + (1*stars[i].speed))) estrela.style.display = "none";
 					if(stars[i].posX < 0) estrela.style.display = "block";
 
 					stars[i].rotation += stars[i].rotationSpeed;
 					stars[i].posX += stars[i].speed;
 
-					if(stars[i].posX > (200 + (3*stars[i].speed)))
-					{
-						stars[i] = randomStar(stars[i].id, -15);
-						estrela.style.top = stars[i].posY +"%";
-						estrela.style.width = stars[i].size +"px";
-						estrela.style.height = stars[i].size +"px";
-						estrela.src = stars[i].backImage;
-					}
-
 					estrela.style.transform = "rotate("+ stars[i].rotation +"deg)";
 					estrela.style.left = stars[i].posX +"%";
-				}
 
-				setTimeout(function(){updateStars()}, updateT);
+					if(stars[i].posX >= 100)
+					{
+						var limite = 100 + stars[i].speed;
+						estrela.style.opacity = "0";
+						if(stars[i].posX > limite) starReborn(i);
+					}
+				}
+				setTimeout(function(){updateStars()}, updateT/inicio);
+				if(inicio > 1) inicio--;
 			}
 			function randomStar(id,x)
 			{
@@ -129,6 +146,8 @@
 				newStar.rotation = randomNumAbs(0, 360);
 				newStar.speed = randomNumAbs(speed.min, speed.max);
 				newStar.size = randomNumInt(size.min, size.max);
+
+				if(x == 0) newStar.posX = -newStar.size;
 
 				return newStar;
 			}
